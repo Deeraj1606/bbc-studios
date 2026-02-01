@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1769888150207",
+    "title": "Pookie",
+    "description": "2 pokies",
+    "genre": [
+      "Comedy",
+      "Family"
+    ],
+    "duration": "21s",
+    "rating": "U",
+    "type": "movie",
+    "year": 2026,
+    "director": "Deeraj",
+    "musicDirector": null,
+    "cast": [
+      "Deeraj",
+      "Prajith"
+    ],
+    "videoUrl": "/uploads/videos/video_1769888150207.mp4",
+    "thumbnailUrl": "/uploads/thumbnails/thumb_1769888150207.jpg",
+    "uploadedAt": "2026-01-31T19:35:50.417Z",
+    "views": 0,
+    "maturityRating": 0,
+    "updatedAt": "2026-01-31T19:40:58.968Z"
+  },
+  {
+    "id": "1769887234843",
+    "title": "THuuu",
+    "description": "Dude Thuu Recreation",
+    "genre": [
+      "INSULT"
+    ],
+    "duration": "",
+    "rating": "PG",
+    "type": "movie",
+    "year": 2025,
+    "director": "Keerthieswarn",
+    "musicDirector": null,
+    "cast": [
+      "Deeraj"
+    ],
+    "videoUrl": "/uploads/videos/video_1769887234843.mp4",
+    "thumbnailUrl": "/uploads/thumbnails/thumb_1769887234843.jpg",
+    "uploadedAt": "2026-01-31T19:20:35.752Z",
+    "views": 0,
+    "maturityRating": 0,
+    "updatedAt": "2026-01-31T19:41:16.936Z"
+  },
+  {
+    "id": "1769886622039",
+    "title": "Coolie",
+    "description": "Summa edutha reels",
+    "genre": [
+      "MASSS"
+    ],
+    "duration": "",
+    "rating": "",
+    "type": "movie",
+    "year": 2026,
+    "director": "Lokesh",
+    "musicDirector": null,
+    "cast": [
+      "Deeraj"
+    ],
+    "videoUrl": "/uploads/videos/video_1769886622039.mp4",
+    "thumbnailUrl": "/uploads/thumbnails/thumb_1769886622039.jpeg",
+    "uploadedAt": "2026-01-31T19:10:22.655Z",
+    "views": 0,
+    "maturityRating": 0
+  }
+]
