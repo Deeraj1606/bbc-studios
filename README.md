@@ -1,7 +1,5 @@
 ﻿[![CI](https://github.com/Deeraj1606/bbc-studios/actions/workflows/ci.yml/badge.svg)](https://github.com/Deeraj1606/bbc-studios/actions) [![License](https://img.shields.io/github/license/Deeraj1606/=flat)](https://github.com/Deeraj1606/bbc-studios/blob/main/LICENSE) [![Stars](https://img.shields.io/github/stars/Deeraj1606/=flat)](https://github.com/Deeraj1606/bbc-studios/stargazers)\n\n# BBC Studios â€“ Next.js Media Starter Kit ðŸš€
 
-![Banner](./screenshot1.png)
-
 ## Overview
 **BBC Studios** is a clean, productionâ€‘ready starter for modern web media sites built with **Next.js 14** and **TypeScript**. It includes:
 - Serverâ€‘Side Rendering (SSR) with incremental static regeneration.
@@ -44,10 +42,6 @@ npm run build   # Generates the .next output
 npm start       # Starts the production server
 ```
 
----
-
-## screenshots
-![Home page](/screenshot2.png)
 
 ---
 
