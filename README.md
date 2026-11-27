@@ -1,78 +1,108 @@
-﻿[![CI](https://github.com/Deeraj1606/bbc-studios/actions/workflows/ci.yml/badge.svg)](https://github.com/Deeraj1606/bbc-studios/actions) [![License](https://img.shields.io/github/license/Deeraj1606/=flat)](https://github.com/Deeraj1606/bbc-studios/blob/main/LICENSE) [![Stars](https://img.shields.io/github/stars/Deeraj1606/=flat)](https://github.com/Deeraj1606/bbc-studios/stargazers)\n\n# BBC Studios â€“ Next.js Media Starter Kit ðŸš€
+ BBC Studios — Premium Streaming Platform
 
-## Overview
-**BBC Studios** is a clean, productionâ€‘ready starter for modern web media sites built with **Next.js 14** and **TypeScript**. It includes:
-- Serverâ€‘Side Rendering (SSR) with incremental static regeneration.
-- Optimised font loading via `next/font` (Geist).
-- Builtâ€‘in routeâ€‘aware layout and theme support.
-- Ready to deploy on Vercel or any Node host.
+![Next.js](https://img.shields.io/badge/Next.js_16-000?logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React_19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript_5-3178C6?logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS_4-06B6D4?logo=tailwindcss&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-DD2C00?logo=firebase&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
-The original repository only contained the default `create-next-app` README. This rewrite adds a proper project description, tech stack, setup guide, screenshots, and contribution guidelines.
+A Netflix-style streaming entertainment platform built with **Next.js 16** (App Router, React Server Components), **Firebase** authentication & data, and **Framer Motion** animations. Features a full admin CMS, user profiles, watchlist, download manager, and content discovery engine.
 
----
+## Architecture
 
-## Tech Stack
-| Layer | Technology |
-|------|------------|
-| **Framework** | **Next.js 14** â€“ App router, Server Components, Edge Runtime |
-| **Language** | **TypeScript 5** â€“ Strict typing, fast builds |
-| **Styling** | Tailwind CSS (optional) or CSS Modules |
-| **Fonts** | `next/font` â€“ Geist (selfâ€‘hosted) |
-| **Deployment** | Vercel, Netlify, Railway, Docker |
-| **CI** | GitHub Actions workflow (`ci.yml`) runs `npm ci && npm run build` |
+```mermaid
+graph TD
+    subgraph Client["Client — Next.js 16 App Router"]
+        Pages["Pages & Layouts (SSR/RSC)"]
+        Components["UI Components (Framer Motion)"]
+        Contexts["Auth & Watchlist Contexts"]
+    end
 
----
+    subgraph API["API Routes"]
+        ContentAPI["/api/content — CRUD"]
+        ActorsAPI["/api/actors — Cast lookup"]
+        ReviewsAPI["/api/reviews — Ratings"]
+        UploadAPI["/api/upload — Media upload"]
+    end
 
-## Getting Started
-```bash
-# Clone the repository
-git clone https://github.com/Deeraj1606/bbc-studios.git
-cd bbc-studios
+    subgraph Services["External Services"]
+        FireAuth["Firebase Auth"]
+        FireStore["JSON Data Store"]
+    end
 
-# Install dependencies (npm, pnpm, yarn, or bun)
-npm install   # or pnpm install, yarn install, bun install
-
-# Run the development server
-npm run dev   # http://localhost:3000
+    Pages --> Components
+    Components --> Contexts
+    Contexts --> FireAuth
+    Pages --> API
+    API --> FireStore
 ```
 
-### Building for Production
-```bash
-npm run build   # Generates the .next output
-npm start       # Starts the production server
-```
+## Features
 
-
----
+- **Content Discovery** — Hero banner, trending carousel, genre grids, continue-watching row
+- **Search & Filtering** — Modal search with category filters and sidebar facets
+- **User System** — Sign up, login, email verification, profile settings, multi-profile support
+- **Watchlist & Downloads** — Add to My List, simulated download manager with progress tracking
+- **Content Detail** — Full content pages with enhanced video player, ratings/reviews, social sharing
+- **Admin Dashboard** — Content CRUD, actor management, analytics, media upload
+- **Actor Pages** — Dynamic actor profiles with filmography
+- **Responsive UI** — Mobile-first design with Tailwind CSS, Geist font, skeleton loading states
 
 ## Project Structure
+
 ```
-.
-â”œâ”€ app/               # App router routes (pages)
-â”‚   â”œâ”€ layout.tsx    # Root layout with shared UI
-â”‚   â””â”€ page.tsx      # Home page
-â”œâ”€ public/            # Static assets (favicon, images)
-â”œâ”€ styles/            # Global CSS / Tailwind config
-â”œâ”€ next.config.ts     # Next.js configuration
-â”œâ”€ tsconfig.json      # TypeScript config
-â””â”€ package.json       # Scripts, dependencies, dev deps
+bbc-studios/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── page.tsx            # Home — Hero + content grids
+│   │   ├── movies/             # Movies browse page
+│   │   ├── tv-shows/           # TV shows browse page
+│   │   ├── content/[id]/       # Content detail page
+│   │   ├── actors/[name]/      # Actor profile page
+│   │   ├── my-list/            # User watchlist
+│   │   ├── downloads/          # Download manager
+│   │   ├── login/ & signup/    # Auth pages
+│   │   ├── admin/              # Admin CMS (manage, upload, edit, analytics, actors)
+│   │   └── api/                # REST API routes (content, actors, reviews, upload)
+│   ├── components/             # Reusable UI (navbar, hero, grids, modals, player)
+│   ├── contexts/               # React contexts (auth, watchlist)
+│   └── lib/                    # Firebase config, utilities, download store
+├── data/                       # JSON data files (content, actors, reviews)
+├── public/                     # Static assets (favicon, SVGs)
+└── package.json
 ```
 
----
+## Quick Start
 
-## Contributing
-We welcome contributions! Please fork the repo, create a feature branch, and open a pull request. Follow the standard guidelines in `CONTRIBUTING.md`.
+```bash
+git clone https://github.com/Deeraj1606/bbc-studios.git
+cd bbc-studios
+npm install
+npm run dev        # → http://localhost:3000
+```
 
----
+### Production Build
+
+```bash
+npm run build
+npm start
+```
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router, Server Components) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS 4, Geist font |
+| Animation | Framer Motion |
+| Auth | Firebase Authentication |
+| Data | JSON files served via API routes |
+| Charts | Recharts (admin analytics) |
+| Icons | Lucide React |
+| UI Primitives | CVA + clsx + tailwind-merge |
 
 ## License
-MIT License â€“ see the `LICENSE` file.
 
----
-
-## Contact
-- **Author**: Deeraj ([@Deeraj1606](https://github.com/Deeraj1606))
-- **Issues**: Open a GitHub issue for bugs or feature requests.
-
-
-
+MIT — see [LICENSE](LICENSE) for details.
